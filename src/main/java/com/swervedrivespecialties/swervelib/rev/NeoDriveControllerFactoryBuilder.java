@@ -9,6 +9,8 @@ import com.swervedrivespecialties.swervelib.ModuleConfiguration;
 
 import static com.swervedrivespecialties.swervelib.rev.RevUtils.checkNeoError;
 
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
+
 public final class NeoDriveControllerFactoryBuilder {
     private double nominalVoltage = Double.NaN;
     private double currentLimit = Double.NaN;
@@ -83,6 +85,11 @@ public final class NeoDriveControllerFactoryBuilder {
         @Override
         public double getStateVelocity() {
             return encoder.getVelocity();
+        }
+
+        @Override
+        public TalonFX getDriveFalcon() {
+            return null;
         }
     }
 }
